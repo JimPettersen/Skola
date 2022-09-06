@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Skola", "Skola.vcxproj", "{2E5D3056-3932-49BC-BF6F-850BAB84E294}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E5D3056-3932-49BC-BF6F-850BAB84E294}.Debug|x64.ActiveCfg = Debug|x64
+		{2E5D3056-3932-49BC-BF6F-850BAB84E294}.Debug|x64.Build.0 = Debug|x64
+		{2E5D3056-3932-49BC-BF6F-850BAB84E294}.Debug|x86.ActiveCfg = Debug|Win32
+		{2E5D3056-3932-49BC-BF6F-850BAB84E294}.Debug|x86.Build.0 = Debug|Win32
+		{2E5D3056-3932-49BC-BF6F-850BAB84E294}.Release|x64.ActiveCfg = Release|x64
+		{2E5D3056-3932-49BC-BF6F-850BAB84E294}.Release|x64.Build.0 = Release|x64
+		{2E5D3056-3932-49BC-BF6F-850BAB84E294}.Release|x86.ActiveCfg = Release|Win32
+		{2E5D3056-3932-49BC-BF6F-850BAB84E294}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {67B1C342-9C79-46AA-B8CC-0C15D36C3562}
+	EndGlobalSection
+EndGlobal
