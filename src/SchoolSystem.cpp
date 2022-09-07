@@ -85,7 +85,7 @@ void SchoolSystem::LogIn()
 	std::cin >> Password;
 	for (auto i : Usernames)
 	{
-		int x = 0;
+		int x = 0;//för att sedangemföra indexerna så att rätt password är till rätt username
 		if (i == Username)
 		{
 			x = num;
@@ -93,7 +93,7 @@ void SchoolSystem::LogIn()
 			
 		for (auto y : Passwords) 
 		{
-			int h = 0;
+			int h = 0;//för att sedangemföra indexerna så att rätt password är till rätt username
 			if (y == Password)
 			{
 				h = num2;
