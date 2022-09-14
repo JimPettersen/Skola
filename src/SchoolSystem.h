@@ -31,4 +31,5 @@ public:
 	std::vector<std::string>Passwords;
 private:
 	bool mainLoop = true;
+	bool loop2 = false;
 };

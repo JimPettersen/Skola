@@ -1,18 +1,49 @@
 #include "SchoolSystem.h"
 
 
+void SchoolSystem::ProgramMenu()
+{
+	int input = 0;
+
+	std::cout << "Welcome to Schoolsystem program\n" << "\nAdd student 1\n" << "Remove student press 2\n"
+		<< "Add class press 3\n" << "Add student to class press 4\n" << "Information about classes/students press 5\n\n";
+	std::cin >> input;
+
+	switch (input)
+	{
+	case 1:
+		break;
+	case 2:
+		break;
+	case 3:
+		break;
+	case 4:
+		break;
+	case 5:
+		break;
+	default:
+		break;
+	}
+}
 
 void SchoolSystem::Run()
 {
-	Menu();
+	std::cout << "Welcome to Schoolsystem program\n";
 	while (mainLoop)
 	{
+		ProgramMenu();
+		Menu();
 		//Menyn
 		//Input
 		//Feedback
 		if (!mainLoop) break;
 		std::cin.get();
 	}
+	while(loop2)
+	{
+		ProgramMenu();
+	}
+
 }
 
 void SchoolSystem::AddStudent()
@@ -33,7 +64,7 @@ void SchoolSystem::Menu()
 	int input = 0;
 
 
-	std::cout << "Welcome to Schoolsystem program\n" << "\nLog in press 1\n" << "Create account press 2\n" << "Close program press 3\n";
+	std::cout << "Log in press 1\n" << "Create account press 2\n" << "Close program press 3\n";
 	std::cin >> input;
 
 	switch (input)
@@ -52,7 +83,6 @@ void SchoolSystem::Menu()
 	default:
 		break;
 	}
-	Menu();
 	
 }
 
@@ -83,6 +113,7 @@ void SchoolSystem::LogIn()
 	std::cin >> Username;
 	std::cout << "Vad har du för lössenord: \n";
 	std::cin >> Password;
+
 	for (auto i : Usernames)
 	{
 		int x = 0;//för att sedangemföra indexerna så att rätt password är till rätt username
@@ -103,14 +134,9 @@ void SchoolSystem::LogIn()
 		x++;
 		if (num == num2)
 		{
-			ProgramMenu();
+			mainLoop = false;
+			loop2 = true;
 		}
 		else std::cout << "Finns inte \n", Menu();
 	}
-}
-
-void SchoolSystem::ProgramMenu()
-{
-	std::cout << "You made it yay \n";
-	std::cin >> num;
 }
