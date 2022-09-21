@@ -1,43 +1,17 @@
 #include "SchoolSystem.h"
 
-
-void SchoolSystem::ProgramMenu()
-{
-	int input = 0;
-
-	std::cout << "Welcome to Schoolsystem program\n" << "\nAdd student 1\n" << "Remove student press 2\n"
-		<< "Add class press 3\n" << "Add student to class press 4\n" << "Information about classes/students press 5\n\n";
-	std::cin >> input;
-
-	switch (input)
-	{
-	case 1:
-		break;
-	case 2:
-		break;
-	case 3:
-		break;
-	case 4:
-		break;
-	case 5:
-		break;
-	default:
-		break;
-	}
-}
-
 void SchoolSystem::Run()
 {
 	std::cout << "Welcome to Schoolsystem program\n";
 	while (mainLoop)
 	{
 		ProgramMenu();
-		Menu();
+	    //ta bort när klar
+		//Lägg till Menu() när klar
 		//Menyn
 		//Input
 		//Feedback
 		if (!mainLoop) break;
-		std::cin.get();
 	}
 	while(loop2)
 	{
@@ -45,19 +19,122 @@ void SchoolSystem::Run()
 	}
 
 }
+void SchoolSystem::ProgramMenu()
+{
+	int input = 0;
+	int elevensÅlder = 0;
+	std::string elevensNamn = "";
 
-void SchoolSystem::AddStudent()
+
+	std::cout << "\nAdd student press 1\n" << "Remove student press 2\n"
+		<< "Add class press 3\n" << "Add student to class press 4\n" << "Information about classes/students press 5\n" << "Close program press 6\n";
+	std::cin >> input;
+
+	switch(input)
+	{
+	case 1:
+		std::cout << "Vad heter eleven? \n";
+		std::cin >> elevensNamn;
+		std::cout << "Hur gammal är eleven? \n";
+		std::cin >> elevensÅlder;
+		AddStudent(elevensNamn, elevensÅlder);
+		break;
+	case 2:
+		RemoveStudent();
+		break;
+	case 3:
+		break;
+	case 4:
+		addStudentToClass();
+		break;
+	case 5:
+		info();
+		break;
+	case 6:
+		std::cout << "Bye ";
+		loop2 = false;
+		break;
+	default:
+		break;
+	}
+}
+
+void SchoolSystem::AddStudent(std::string name, int age)
 {
 	Student student;
-	student.name = "Rick";
-	student.age = 18;
+	student.name = name;
+	student.age = age;
 	students.push_back(student);
 }
 
 void SchoolSystem::RemoveStudent()
 {
+	std::string deletStudent = "";
+	std::cout << "Vad heter eleven du vill ta bort? \n";
+	std::cin >> deletStudent;
+
+	if (students.size() == 0)
+	{
+		std::cout << "Finns ingen elev vid detta namn\n";
+	}
+
+	for (size_t i = 0; i < students.size(); i++)
+	{
+		for (auto x : students)
+		{
+			if (x.name == deletStudent)
+			{
+				students.erase(std::begin(students) + i);
+				std::cout << "Removed student " << x.name << "\nList of student \n";
+				for (auto k : students)
+				{
+					std::cout << k.name << ", ";
+				}
+			}
+			else 
+			{
+				std::cout << "Finns ingen elev vid detta namn\n";
+			}
+			
+		}
+		
+	}
+}
+
+void SchoolSystem::AddClass(std::string klass)
+{
 
 }
+
+void SchoolSystem::info()
+{
+	for (auto k : students)
+	{
+		std::cout << k.name << ", ";
+	}
+}
+
+void SchoolSystem::addStudentToClass()
+{
+	std::string name;
+	std::string skolKlass;
+	std::cout << "Vad heter eleven? \n";
+	std::cin >> name;
+	std::cout << "Vilken klass går eleven i? \n";
+	std::cin >> skolKlass;
+
+	for (auto& classes : schoolClasses)
+	{
+		if (classes != skolKlass) return;
+	}
+	
+	for (auto& student : students)
+	{
+		if (student.name == name)student.klass = skolKlass;
+	}
+
+}
+
 
 void SchoolSystem::Menu()
 {
@@ -82,7 +159,7 @@ void SchoolSystem::Menu()
 		break;
 	default:
 		break;
-	}
+	};
 	
 }
 
@@ -121,8 +198,8 @@ void SchoolSystem::LogIn()
 		{
 			x = num;
 		}
-			
-		for (auto y : Passwords) 
+
+		for (auto y : Passwords)
 		{
 			int h = 0;//för att sedangemföra indexerna så att rätt password är till rätt username
 			if (y == Password)
@@ -138,5 +215,5 @@ void SchoolSystem::LogIn()
 			loop2 = true;
 		}
 		else std::cout << "Finns inte \n", Menu();
-	}
+	};
 }
