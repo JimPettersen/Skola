@@ -24,10 +24,12 @@ void SchoolSystem::ProgramMenu()
 	int input = 0;
 	int elevens≈lder = 0;
 	std::string elevensNamn = "";
+	std::string klassensNamn = "";
 
 
 	std::cout << "\nAdd student press 1\n" << "Remove student press 2\n"
-		<< "Add class press 3\n" << "Add student to class press 4\n" << "Information about classes/students press 5\n" << "Close program press 6\n";
+		<< "Add class press 3\n" << "Add student to class press 4\n" << "Remove student from class 5\n" <<
+		"Information about classes/students press 6\n" << "Close program press 7\n";
 	std::cin >> input;
 
 	switch(input)
@@ -43,14 +45,19 @@ void SchoolSystem::ProgramMenu()
 		RemoveStudent();
 		break;
 	case 3:
+		std::cout << "Vad heter klassen? \n";
+		std::cin >> klassensNamn;
+		AddClass(klassensNamn);
 		break;
 	case 4:
 		addStudentToClass();
 		break;
-	case 5:
-		info();
+	case 5: 
 		break;
 	case 6:
+		info();
+		break;
+	case 7:
 		std::cout << "Bye ";
 		loop2 = false;
 		break;
@@ -103,15 +110,26 @@ void SchoolSystem::RemoveStudent()
 
 void SchoolSystem::AddClass(std::string klass)
 {
-
+	Student student;
+	student.klass = klass;
+	students.push_back(student);
 }
 
 void SchoolSystem::info()
 {
+	Student student;
+	std::cout << "Alla students: ";
 	for (auto k : students)
 	{
 		std::cout << k.name << ", ";
 	}
+	std::cout << "\nAlla klasser: ";
+	for (auto k : students)
+	{
+		std::cout << k.klass << ", ";
+	}
+
+
 }
 
 void SchoolSystem::addStudentToClass()
@@ -125,7 +143,10 @@ void SchoolSystem::addStudentToClass()
 
 	for (auto& classes : schoolClasses)
 	{
-		if (classes != skolKlass) return;
+		if (classes != skolKlass)
+		{
+			std::cout << "Det finns inga klasser vid detta namn";
+		}
 	}
 	
 	for (auto& student : students)
