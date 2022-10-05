@@ -11,6 +11,7 @@ public:
 	void Run();
 	void AddStudent(std::string name, int age);
 	void RemoveStudent();
+	void RemoveStudentFromClass();
 	void AddClass(std::string klass);
 	void Menu();
 	void CreateAccount();
